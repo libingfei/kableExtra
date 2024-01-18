@@ -267,7 +267,7 @@ save_kable_latex <- function(x, file, latex_header_includes, keep_tex, density) 
   table_img_info <- NULL
   if (tools::file_ext(file) != "pdf") {
     table_img_pdf <- try(
-      magick::image_read(paste0(file_no_ext, ".pdf"),
+      magick::image_read_pdf(paste0(file_no_ext, ".pdf"),
                          density = density), silent = T)
     if (inherits(table_img_pdf, "try-error")) {
       stop("We hit an error when trying to use magick to read the generated ",
